@@ -1,7 +1,7 @@
 # RSRS策略不同模型验证
 TUSHARE ID: 494365
+对不同模型的实际回测在[聚宽](https://www.joinquant.com/view/community/detail/05f09e4e904b67edfc1c28813dd7b8f2)上。
 # Preliminaries
-
 ## Math Model
 因为我们的策略是想要尽量的找到股价表现强势, 且有能够形成趋势的个股, 我们对股票的收盘价进行建模: 
 $$
@@ -16,14 +16,7 @@ $$
 $$
 \log y = n*\log(1+N\%) + \log x
 $$
-我们重新定义一下变量
-$$
-Y &=& \log y\\
-k &=& \log (1+N\%)\\
-n &=& x\\
-b &=& \log x
-$$
-那么我们的模型就变为了一个很简单的一次函数模型：
+我们重新定义一下变量$Y = \log y, k &=& \log (1+N\%), n = x, b = \log x$, 那么我们的模型就变为了一个很简单的一次函数模型：
 $$
 Y = k*x+b
 $$
