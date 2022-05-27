@@ -1,6 +1,7 @@
 # RSRS策略不同模型验证
 TUSHARE ID: 494365
-对不同模型的实际回测在[聚宽](https://www.joinquant.com/view/community/detail/05f09e4e904b67edfc1c28813dd7b8f2)上。
+对不同模型的回测在[这里](https://www.joinquant.com/view/community/detail/05f09e4e904b67edfc1c28813dd7b8f2)上。
+
 # Preliminaries
 ## Math Model
 因为我们的策略是想要尽量的找到股价表现强势, 且有能够形成趋势的个股, 我们对股票的收盘价进行建模: 
@@ -10,7 +11,7 @@ $$
 
 这里$y\,$是n天之后的收盘价，$x\,$是期初的收盘价。这就是一个复利问题，这么一看是一个指数函数不太好处理，我们对两边取对数：
 $$
-\log y =\log[(1+N\%)^n*x]
+\log y =\mathrm{log}[(1+N\%)^n*x]
 $$
 可以化简为
 $$
@@ -33,7 +34,7 @@ $$
 ## 策略
 在进行实例之前先介绍一下我们的策略：通过上面构建的统计量$\alpha\,$给股票池里的所有个股打分，只够买得分最高的那一只。
 ## 实例
-以\$天保基建为例，我们通过**TUSHARE**获取了其22年2月24日到4月25日总共41天的日线数据来进行实验。实际的策略回测部署在聚宽上[RSRS策略](https://www.joinquant.com/view/community/detail/05f09e4e904b67edfc1c28813dd7b8f2)
+以\$天保基建为例，我们通过**TUSHARE**获取了其22年2月24日到4月25日总共41天的日线数据来进行实验。实际的策略回测部署在[RSRS策略](https://www.joinquant.com/view/community/detail/05f09e4e904b67edfc1c28813dd7b8f2)
 ![000965.png](r2TEMbQEf-000965.png)
 
 在开头也说了，我们的目的是为了在早期的时候尽早的介入然后在转弱的时候即使止盈，为此需要使我们的评分$\alpha\,$在连板时尽快的变大，在冲高回落后分数要尽快的降低，为此$\alpha\,$得尽可能的对收盘价敏感，接下来我们就来看看2种不同方法所构建出来的$\alpha\,$对收盘价的敏感程度。
