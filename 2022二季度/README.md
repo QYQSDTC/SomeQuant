@@ -5,18 +5,12 @@ TUSHARE ID: 494365
 # Preliminaries
 ## Math Model
 因为我们的策略是想要尽量的找到股价表现强势, 且有能够形成趋势的个股, 我们对股票的收盘价进行建模: 
-$$
-y = (1+N\%)^n*x
-$$
+$$y = (1+N\%)^n*x$$
 
 这里$y\,$是n天之后的收盘价，$x\,$是期初的收盘价。这就是一个复利问题，这么一看是一个指数函数不太好处理，我们对两边取对数：
-$$
-\log y =\mathrm{log}[(1+N\%)^n*x]
-$$
+$$\log y =\mathrm{log}[(1+N\%)^n*x]$$
 可以化简为
-$$
-\log y = n*\log(1+N\%) + \log x
-$$
+$$\log y = n*\log(1+N\%) + \log x$$
 我们重新定义一下变量$Y = \log y, k = \log (1+N\%), n = x, b = \log x$, 那么我们的模型就变为了一个很简单的一次函数模型：
 $$
 Y = k*x+b
@@ -44,7 +38,7 @@ $$
 ![fitting_performance.png](HaU_F-5EF-fitting_performance.png)
 
 这样我们就得出了4月26日的关于该股的分数，可见*k*是很小的，所以$\alpha\,$也会很小，代表该股的趋势已经过去了。依次类推，我们可以计算出$41-29=12$个得分，我们把得分和收盘价画在一张图上
-![annualized_returns.png](j8SWEgEnZ-annualized_returns.png)
+![annualized_returns](j8SWEgEnZ-annualized_returns.png)
 这里的得分是画的对数，所以分数的增长是很迅猛的，然后在股价开始下降后分数也开始骤降，符合我们所想要的效果。
 
 ### Mod 2
