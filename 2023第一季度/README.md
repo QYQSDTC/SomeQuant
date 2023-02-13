@@ -6,17 +6,19 @@
 # Data Preparation
 
 首先我们用 Tushare 获取主板的所有标的代码
-![stock_codes](CleanShot 2023-02-13 at 14.31.42.png)
+
+![stock_codes](stock_pool.png)
+
 接下来通过循环调用来获取 2021 年 1 月 1 日至今的所有标的的收盘价
 
-![prices](CleanShot 2023-02-13 at 14.46.55.png)
+![prices](prices.png)
 
 在进行一些数据清理后，计算卡玛比率
 
-![卡玛比率](CleanShot 2023-02-13 at 14.50.10.png)
+![卡玛比率](Calmar.png)
 
 最后计算不同窗口的卡玛比率并进行排序
 
-![results](CleanShot 2023-02-13 at 14.50.22.png)
+![results](results.png)
 
 表中的股票近期的表现都比较强势，说明用卡玛比率来进行趋势的判断有一定意义。
